@@ -17,7 +17,8 @@
                 </a>
               </div>
               <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your account</h2>
-              <form action="#!">
+              <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <div class="row gy-2 overflow-hidden">
                   <div class="col-12">
                     <div class="form-floating mb-3">
