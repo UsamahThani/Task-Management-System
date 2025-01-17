@@ -37,3 +37,7 @@ Route::get('/dashboard', function () {
 Route::get('/tasks', function () {
     return view('tasks.index');
 })->middleware('auth')->name('tasks');
+
+Route::get('/tasks/create', function () {
+    return view('tasks.create');
+})->middleware('auth')->name('tasks.create');

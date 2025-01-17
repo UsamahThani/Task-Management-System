@@ -13,30 +13,29 @@
 @section('content')
 
     <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            DataTable Example
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="card-header-title">
+                <i class="fas fa-table me-1"></i>
+                Tasks
+            </div>
+            <a href="{{route('tasks.create')}}" class="btn btn-success">ADD</a>
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Created Date</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Created Date</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -45,16 +44,12 @@
                         <td>System Architect</td>
                         <td>Edinburgh</td>
                         <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
                     </tr>
                     <tr>
                         <td>Garrett Winters</td>
                         <td>Accountant</td>
                         <td>Tokyo</td>
                         <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
                     </tr>
                 </tbody>
             </table>

@@ -18,6 +18,8 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials, $request->filled('rememberMe'))) {
+            $request->session()->put('username', Auth::user()->name);
+
             return redirect()->intended('dashboard');
         }
 
