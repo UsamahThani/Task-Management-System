@@ -32,4 +32,8 @@ Route::get('/index', function () {
 });
 Route::get('/dashboard', function () {
     return view('dashboard.index');
-})->middleware('auth');
+})->middleware('auth')->name('dashboard');
+
+Route::get('/tasks', function () {
+    return view('tasks.index');
+})->middleware('auth')->name('tasks');
