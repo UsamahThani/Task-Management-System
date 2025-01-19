@@ -129,6 +129,42 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            {{-- Toaster --}}
+            @if (session('success'))
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header  bg-success text-white">
+                            {{-- <img src="..." class="rounded me-2" alt="..."> --}}
+                            <strong class="me-auto">Task Manager</strong>
+                            <small></small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body bg-black-50 ">
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                </div>
+            @elseif (session('error'))
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-warning">
+                            {{-- <img src="..." class="rounded me-2" alt="..."> --}}
+                            <strong class="me-auto">Task Manager</strong>
+                            <small></small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body
+                            bg-danger">
+                            {{ session('error') }}
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+
+            {{-- End Toaster --}}
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">@yield('page-title')</h1>
@@ -153,7 +189,6 @@
             </footer>
         </div>
     </div>
-
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
@@ -166,6 +201,17 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toastElement = document.getElementById('liveToast');
+            if (toastElement) {
+                const toast = new bootstrap.Toast(toastElement);
+                toast.show();
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

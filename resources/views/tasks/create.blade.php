@@ -12,17 +12,27 @@
 @endsection
 
 @section('content')
-<div class="card mb-4">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <div class="card-header-title">
-            <i class="fa-brands fa-wpforms me-1"></i>
-            Task Form
-        </div>
-        <a href="{{route('tasks.create')}}" class="btn btn-success"><i class="fa-regular fa-floppy-disk"></i></a>
+    <div class="card mb-4">
+        <form action="{{ route('tasks.store') }}" method="POST">
+            @csrf
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header-title">
+                    <i class="fa-brands fa-wpforms me-1"></i>
+                    Task Form
+                </div>
+                <button type="submit" class="btn btn-success"><i class="fa-regular fa-floppy-disk"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" id="title" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="card-body">
-        
-    </div>
-</div>
-    
+
 @endsection

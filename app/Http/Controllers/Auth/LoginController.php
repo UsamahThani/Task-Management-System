@@ -19,6 +19,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('rememberMe'))) {
             $request->session()->put('username', Auth::user()->name);
+            $request->session()->put('userID', Auth::user()->id);
 
             return redirect()->intended('dashboard');
         }
